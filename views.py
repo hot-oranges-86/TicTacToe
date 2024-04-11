@@ -47,5 +47,5 @@ class GameVsComputer(Game):
 
     def create_top_bar(self):
         self.diff_lbl = tk.Label(
-            self.top_bar, text='Temporarty Text', fg='red', font=FONT_MAIN)
+            self.top_bar, text='VS Computer', fg='red', font=FONT_MAIN)
         self.diff_lbl.pack()
