@@ -1,11 +1,17 @@
 import tkinter as tk
 from tile import Tile
 
+TURN = 0
+'''checks if it's players turn'''
+MOVE = 0
+'''move counter'''
+
 WAYS_TO_WIN = [
     (0, 1, 2), (3, 4, 5), (6, 7, 8),  # horizontal
     (0, 3, 6), (1, 4, 7), (2, 5, 8),  # vertical
     (0, 4, 8), (2, 4, 6)  # diagonal
 ]
+'''Ways to win a tictactoe game.'''
 
 
 class Board(tk.Frame):
@@ -42,3 +48,8 @@ class Board(tk.Frame):
                 if self.buttons[way[0]]['image'] == self.buttons[way[1]]['image'] and self.buttons[way[0]]['image'] == self.buttons[way[2]]['image'] and self.buttons[way[1]]['image'] == self.buttons[way[2]]['image']:
                     return True
         return False
+
+
+class VsComputerBoard(Board):
+    def __init__(self, parent, controller, icons):
+        super(VsComputerBoard, self).__init__(parent, controller, icons)
