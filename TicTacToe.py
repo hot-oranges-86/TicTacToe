@@ -9,6 +9,8 @@ class GUI(tk.Tk):  # Main window
     def __init__(self, *args) -> None:
         tk.Tk.__init__(self, *args)
 
+        self.icons = get_icons()
+
         self.set_parameters()
 
         self.container = self.make_mainframe()
@@ -26,6 +28,20 @@ class GUI(tk.Tk):  # Main window
         mainframe.grid_columnconfigure(0, weight=1)
 
         return mainframe
+
+
+def get_icons() -> dict:
+    icons = {}
+
+    icons['WindowIcon'] = tk.PhotoImage(file='.\Images\TTT_Logo.png')
+
+    icons['emptyTile'] = tk.PhotoImage(file='.\Images\EmptyTile.png')
+
+    icons['X-Tile'] = tk.PhotoImage(file='.\Images\X-Tile.png')
+
+    icons['O-Tile'] = tk.PhotoImage(file='.\Images\O-Tile.png')
+
+    return icons
 
 
 if __name__ == "__main__":
