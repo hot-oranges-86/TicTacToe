@@ -51,7 +51,7 @@ class Board(tk.Frame):
     def reset(self) -> None:
         for button in self.buttons:
             button.default_image()
-            self.give_command(button)
+            self.button_method_binder(button)
 
     def button_method_binder(self, button) -> None:
         '''Binds merged methods for a button.'''
