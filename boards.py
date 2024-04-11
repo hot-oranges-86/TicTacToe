@@ -1,6 +1,12 @@
 import tkinter as tk
 from tile import Tile
 
+WAYS_TO_WIN = [
+    (0, 1, 2), (3, 4, 5), (6, 7, 8),  # horizontal
+    (0, 3, 6), (1, 4, 7), (2, 5, 8),  # vertical
+    (0, 4, 8), (2, 4, 6)  # diagonal
+]
+
 
 class Board(tk.Frame):
 
@@ -26,3 +32,11 @@ class Board(tk.Frame):
             for j in range(3):
                 self.buttons[temp].grid(column=i, row=j, padx=5, pady=5)
                 temp += 1
+
+    def check_for_win(self, button):
+        for way in WAYS_TO_WIN:
+            # prevents form counting empty tiles
+            if self.buttons.index(button) in way:
+                if self.buttons[way[0]]['image'] == self.buttons[way[1]]['image'] and self.buttons[way[0]]['image'] == self.buttons[way[2]]['image'] and self.buttons[way[1]]['image'] == self.buttons[way[2]]['image']:
+                    return True
+        return False
