@@ -33,7 +33,11 @@ This is a simple implementation of the Tic Tac Toe game. It allows a player to c
 
 ## How to Run
 
-TODO
+Simply run TicTacToe.py file
+
+```bash
+python TicTacToe.py
+```
 
 ## Possible Future Improvements
 
