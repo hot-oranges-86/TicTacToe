@@ -1,6 +1,6 @@
 import tkinter as tk
 from tile import Tile
-from boards import MyMessageBox
+from message_boxes import MyMessageBox
 from copy import deepcopy
 import math
 
