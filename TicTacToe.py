@@ -3,6 +3,7 @@ from methods import set_size
 from menus import MainMenu
 from views import GameVsComputer
 
+
 class GUI(tk.Tk):  # Main window
 
     '''Main window for the game.'''
@@ -59,13 +60,13 @@ class GUI(tk.Tk):  # Main window
 def get_icons() -> dict:
     icons = {}
 
-    icons['WindowIcon'] = tk.PhotoImage(file='.\Images\TTT_Logo.png')
+    icons['WindowIcon'] = tk.PhotoImage(file='./Images/TTT_Logo.png')
 
-    icons['emptyTile'] = tk.PhotoImage(file='.\Images\EmptyTile.png')
+    icons['emptyTile'] = tk.PhotoImage(file='./Images/EmptyTile.png')
 
-    icons['X-Tile'] = tk.PhotoImage(file='.\Images\X-Tile.png')
+    icons['X-Tile'] = tk.PhotoImage(file='./Images/X-Tile.png')
 
-    icons['O-Tile'] = tk.PhotoImage(file='.\Images\O-Tile.png')
+    icons['O-Tile'] = tk.PhotoImage(file='./Images/O-Tile.png')
 
     return icons
 
