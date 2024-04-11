@@ -26,14 +26,16 @@ class Board(tk.Frame):
 
         self.place_buttons()
 
-    def place_buttons(self):
+    def place_buttons(self) -> None:
+        '''Places Tiles in a grid.'''
         temp = 0
         for i in range(3):
             for j in range(3):
                 self.buttons[temp].grid(column=i, row=j, padx=5, pady=5)
                 temp += 1
 
-    def check_for_win(self, button):
+    def check_for_win(self, button) -> bool:
+        '''Checks for win.'''
         for way in WAYS_TO_WIN:
             # prevents form counting empty tiles
             if self.buttons.index(button) in way:
