@@ -50,7 +50,7 @@ class Board(tk.Frame):
 
     def reset(self) -> None:
         for button in self.buttons:
-            button.stock_image()
+            button.default_image()
             self.give_command(button)
 
     def button_method_binder(self, button) -> None:
