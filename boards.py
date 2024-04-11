@@ -32,6 +32,11 @@ class Board(tk.Frame):
 
         self.place_buttons()
 
+        for button in self.buttons:  # assigns methods for every button
+            self.button_method_binder(button)
+
+    # Board setup
+
     def place_buttons(self) -> None:
         '''Places Tiles in a grid.'''
         temp = 0
@@ -39,6 +44,21 @@ class Board(tk.Frame):
             for j in range(3):
                 self.buttons[temp].grid(column=i, row=j, padx=5, pady=5)
                 temp += 1
+
+    def reset(self) -> None:
+        for button in self.buttons:
+            button.stock_image()
+            self.give_command(button)
+
+    def button_method_binder(self, button) -> None:
+        '''Binds merged methods for a button.'''
+        button.tile_bind(lambda button: self.button_functions_merge(button))
+
+    # methods
+
+    def get_parent_frame(self, game_frame) -> None:
+        '''Sets recived frame as a pranet frame.'''
+        self.parent_frame = game_frame
 
     def check_for_win(self, button) -> bool:
         '''Checks for win.'''
@@ -48,6 +68,23 @@ class Board(tk.Frame):
                 if self.buttons[way[0]]['image'] == self.buttons[way[1]]['image'] and self.buttons[way[0]]['image'] == self.buttons[way[2]]['image'] and self.buttons[way[1]]['image'] == self.buttons[way[2]]['image']:
                     return True
         return False
+
+    # TURN and MOVE controls
+
+    def get_turn(self) -> bool:
+        return TURN
+
+    def move_reset(self) -> None:
+        global MOVE
+        MOVE = 0
+
+    def turn_change(self) -> None:
+        global TURN
+        TURN = not TURN
+
+    def next_move(self) -> None:
+        global MOVE
+        MOVE += 1
 
 
 class VsComputerBoard(Board):
